@@ -1,0 +1,65 @@
+# 取得元（仕様「データ取得元と抽出項目」＋2026-10-01の調査で追加したもの）
+#
+# kind:
+#   rss          … RSS/Atom。pages で過去ページを何枚まで遡るか（既読に当たれば止まる）
+#   page_links   … 一覧ページ。中の個別記事リンクを拾う（RSSから溢れた記事の回収用）
+#   skymark_fares… スカイマーク公式の運賃CSV（記事ではなく路線別の最安運賃そのもの）
+#
+# official: true は航空会社自身の発表。まとめサイトより早く・確実に出る。
+#
+# 取れなかったもの（再調査しないための記録・2026-10-01）:
+#   ジェットスター／ピーチ公式サイト … 自動アクセスに無応答 → PR TIMES で代替
+#   HIS … 403 / trip.com・agoda … robots.txt で航空券検索結果を禁止
+#   スカイスキャナー … 運賃は後から読み込まれ HTML に無い / lcc.jp … 無関係の会社（LCCjp は dsk.ne.jp）
+
+sources:
+  # --- 航空会社の公式発表 ---
+  - name: ジェットスター（PR TIMES）
+    kind: rss
+    url: https://prtimes.jp/companyrdf.php?company_id=12437
+    official: true
+    airline: ジェットスター
+    pages: 1
+  - name: ピーチ（PR TIMES）
+    kind: rss
+    url: https://prtimes.jp/companyrdf.php?company_id=81560
+    official: true
+    airline: ピーチ
+    pages: 1
+  - name: スカイマーク（運賃CSV）
+    kind: skymark_fares
+    url: https://www.skymark.co.jp/ja/campaign/sale/index.php
+    official: true
+    airline: スカイマーク
+  - name: スカイマーク（お知らせ）
+    kind: page_links
+    url: https://www.skymark.co.jp/ja/news/
+    official: true
+    airline: スカイマーク
+    link_pattern: /ja/news/detail/
+
+  # --- セール情報のまとめサイト ---
+  - name: モノリビ
+    kind: rss
+    url: https://monomoney-living.com/feed/
+    pages: 2
+  - name: モノリビ 国内線セール一覧
+    kind: page_links
+    url: https://monomoney-living.com/aircraft-ticket_timesale/
+    link_pattern: monomoney-living.com/
+  - name: モノリビ 国際線セール一覧
+    kind: page_links
+    url: https://monomoney-living.com/international-flight_timesale/
+    link_pattern: monomoney-living.com/
+  - name: TRAICY
+    kind: rss
+    url: https://www.traicy.com/feed/
+    pages: 3        # 1日約29件・1ページ30件なので、起動が遅れた日に備えて遡る
+  - name: sky-budget
+    kind: rss
+    url: https://sky-budget.com/feed/
+    pages: 3        # 1日約13件なのに1ページ10件しか載らない
+  - name: LCCjp
+    kind: rss
+    url: https://dsk.ne.jp/rss.xml
+    pages: 1

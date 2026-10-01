@@ -1,0 +1,28 @@
+# 定数（仕様「注意点・リスク」の巡回マナーと、入札監視から流用した Gemini の上限）
+
+http:
+  # 連絡先は公開リポジトリのURL。個人のメールアドレスは他サイトに送らない
+  user_agent: "naha-air-watch/1.0 (personal fare monitor; +https://github.com/jibunroom/naha-air-watch)"
+  timeout_sec: 20
+  retries: 1
+  host_interval_sec: 2.0
+  respect_robots: true
+
+extract:
+  # 長い記事は沖縄関連の行を優先して残してから Gemini に渡す（表の下の方の那覇路線を落とさないため）
+  max_chars: 9000
+
+gemini:
+  # 無料枠の上限はモデルごと（gemini-flash-latest＝3.8-flash は1日20回・2026-10-01実測）。
+  # 上から順に使い、1日の上限・混雑・廃止なら次のモデルへ自動で切り替える。
+  # gemini-flash-latest は入札監視と枠を共有するので最後に置く。
+  models:
+    - gemini-3.6-flash
+    - gemini-3.5-flash
+    - gemini-3.7-flash
+    - gemini-flash-lite-latest
+    - gemini-flash-latest
+  min_interval_sec: 4.1       # 15 RPM
+  max_requests_per_run: 40
+  backoff_sec: [8, 16, 32]
+  max_retries: 3
