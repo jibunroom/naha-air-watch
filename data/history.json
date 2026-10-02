@@ -471,5 +471,159 @@
   "trip": "片道",
   "basis": "official",
   "source": "スカイマーク（運賃CSV）"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "JAL",
+  "origin": "OKA",
+  "destination": "ITM",
+  "price": 10780,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "JAL",
+  "origin": "ISG",
+  "destination": "ITM",
+  "price": 13200,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "JAL",
+  "origin": "MMY",
+  "destination": "ITM",
+  "price": 13200,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "JAL",
+  "origin": "OKA",
+  "destination": "RNJ",
+  "price": 12100,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "JAL",
+  "origin": "OKA",
+  "destination": "OGN",
+  "price": 16500,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "JAL",
+  "origin": "OKA",
+  "destination": "KTD",
+  "price": 12100,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "JAL",
+  "origin": "OKA",
+  "destination": "MMD",
+  "price": 10560,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "JAL",
+  "origin": "ISG",
+  "destination": "MMY",
+  "price": 9350,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "JAL",
+  "origin": "ISG",
+  "destination": "OGN",
+  "price": 9350,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "ピーチ",
+  "origin": "OKA",
+  "destination": "TPE",
+  "price": 17000,
+  "tax": "税別",
+  "trip": "往復",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "ピーチ",
+  "origin": "OKA",
+  "destination": "KIX",
+  "price": 10000,
+  "tax": "税別",
+  "trip": "往復",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "ピーチ",
+  "origin": "OKA",
+  "destination": "FUK",
+  "price": 9000,
+  "tax": "税別",
+  "trip": "往復",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "ジェットスター",
+  "origin": "OKA",
+  "destination": "KHH",
+  "price": 6990,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-02",
+  "airline": "スカイマーク",
+  "origin": "OKA",
+  "destination": "SHI",
+  "price": 4100,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "official",
+  "source": "スカイマーク（運賃CSV）"
  }
 ]

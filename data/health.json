@@ -3,70 +3,70 @@
   "fail_streak": 0,
   "alerted": false,
   "daily": {
-   "2026-10-02": 193
+   "2026-10-02": 386
   }
  },
  "ピーチ（PR TIMES）": {
   "fail_streak": 0,
   "alerted": false,
   "daily": {
-   "2026-10-02": 32
+   "2026-10-02": 64
   }
  },
  "スカイマーク（運賃CSV）": {
   "fail_streak": 0,
   "alerted": false,
   "daily": {
-   "2026-10-02": 88
+   "2026-10-02": 176
   }
  },
  "スカイマーク（お知らせ）": {
   "fail_streak": 0,
   "alerted": false,
   "daily": {
-   "2026-10-02": 64
+   "2026-10-02": 128
   }
  },
  "モノリビ": {
   "fail_streak": 0,
   "alerted": false,
   "daily": {
-   "2026-10-02": 20
+   "2026-10-02": 30
   }
  },
  "モノリビ 国内線セール一覧": {
   "fail_streak": 0,
   "alerted": false,
   "daily": {
-   "2026-10-02": 16
+   "2026-10-02": 32
   }
  },
  "モノリビ 国際線セール一覧": {
   "fail_streak": 0,
   "alerted": false,
   "daily": {
-   "2026-10-02": 33
+   "2026-10-02": 66
   }
  },
  "TRAICY": {
   "fail_streak": 0,
   "alerted": false,
   "daily": {
-   "2026-10-02": 90
+   "2026-10-02": 120
   }
  },
  "sky-budget": {
   "fail_streak": 0,
   "alerted": false,
   "daily": {
-   "2026-10-02": 30
+   "2026-10-02": 40
   }
  },
  "LCCjp": {
   "fail_streak": 0,
   "alerted": false,
   "daily": {
-   "2026-10-02": 30
+   "2026-10-02": 60
   }
  }
 }

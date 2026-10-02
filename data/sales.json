@@ -123,5 +123,45 @@
    "https://www.skymark.co.jp/ja/campaign/sale/index.php"
   ],
   "notified_at": "2026-10-02T21:09+09:00"
+ },
+ {
+  "key": [
+   "ピーチ",
+   "OKA",
+   "TPE",
+   8500,
+   false
+  ],
+  "airline": "ピーチ",
+  "origin": "OKA",
+  "destination": "TPE",
+  "price": 17000,
+  "rank": "即買い",
+  "booking_start": "2026-09-29T12:00",
+  "booking_end": "2027-01-26T23:59",
+  "urls": [
+   "https://dsk.ne.jp/news/peach_dangan_20260929.html"
+  ],
+  "notified_at": "2026-10-02T21:26+09:00"
+ },
+ {
+  "key": [
+   "ピーチ",
+   "OKA",
+   "FUK",
+   4500,
+   false
+  ],
+  "airline": "ピーチ",
+  "origin": "OKA",
+  "destination": "FUK",
+  "price": 9000,
+  "rank": "即買い",
+  "booking_start": "2026-09-29T12:00",
+  "booking_end": "2027-01-26T23:59",
+  "urls": [
+   "https://dsk.ne.jp/news/peach_dangan_20260929.html"
+  ],
+  "notified_at": "2026-10-02T21:26+09:00"
  }
 ]
