@@ -30,6 +30,7 @@ class Deal:
     tax: str = "不明"           # 税込 / 税別 / 不明
     trip: str = "片道"          # 片道 / 往復 / 不明
     basis: str = "route"        # route=路線別の価格 / from=路線共通の「〜円から」 / official=公式運賃表
+    product: str = "航空券"     # 航空券 / パッケージ / その他
     sale_name: str | None = None
     booking_start: str | None = None
     booking_end: str | None = None
@@ -186,6 +187,13 @@ def judge(deal: Deal, rules: Rules, now: datetime) -> Deal:
     deal.rank, deal.reason = None, ""
     if is_expired(deal, now):
         deal.reason = "予約・搭乗期間が終了"
+        return deal
+
+    if deal.product != "航空券":
+        deal.reason = f"{deal.product}（パッケージツアーは v2）"
+        return deal
+    if deal.origin != "OKA":
+        deal.reason = f"那覇発ではない（{deal.origin}発）"   # 仕様は那覇発。石垣発などは履歴にだけ残す
         return deal
 
     if deal.destination == "全路線":

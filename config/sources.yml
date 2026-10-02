@@ -46,10 +46,12 @@ sources:
   - name: モノリビ 国内線セール一覧
     kind: page_links
     url: https://monomoney-living.com/aircraft-ticket_timesale/
+    sale_list: true   # リンク先はすべてセール記事（タイトル判定を省く）
     link_pattern: "monomoney-living\\.com/[^/]+_20\\d{6}/?$"   # 日付つき＝個別のセール記事
   - name: モノリビ 国際線セール一覧
     kind: page_links
     url: https://monomoney-living.com/international-flight_timesale/
+    sale_list: true
     link_pattern: "monomoney-living\\.com/[^/]+_20\\d{6}/?$"
   - name: TRAICY
     kind: rss

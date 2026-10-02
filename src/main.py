@@ -11,6 +11,7 @@ import dataclasses
 import logging
 import subprocess
 import sys
+import time
 import traceback
 from datetime import datetime, timedelta
 
@@ -43,12 +44,16 @@ def deals_from_extraction(r: Extraction, rules: Rules) -> list[Deal]:
         excluded_periods=d.get("excluded_periods") or [], peak_flags=d.get("peak") or {},
         member_only=d.get("member_only"), presale=d.get("presale"),
         conditions=d.get("conditions") or [], urls=[a.url], sources=[a.source],
-        official_url=d.get("official_url"),
+        official_url=d.get("official_url"), product=d.get("product") or "航空券",
     )
-    out = [Deal(origin=f["origin"], destination=f["destination"], price=f["price"],
-                currency=f["currency"], tax=f["tax"], trip=f["trip"],
-                basis=f.get("basis", "route"), note=f.get("note"), **common)
-           for f in d.get("fares") or []]
+    out = []
+    for f in d.get("fares") or []:
+        deal = Deal(origin=f["origin"], destination=f["destination"], price=f["price"],
+                    currency=f["currency"], tax=f["tax"], trip=f["trip"],
+                    basis=f.get("basis", "route"), note=f.get("note"), **common)
+        # 除外期間は「全路線共通」＋「その路線だけ」。他の路線の除外は混ぜない
+        deal.excluded_periods = list(common["excluded_periods"]) + list(f.get("excluded_periods") or [])
+        out.append(deal)
     if out:
         return out
     # 那覇の個別価格が無い全路線セール。沖縄対象と明記、または那覇就航会社なら拾う（逃さない）
@@ -100,12 +105,20 @@ def merge_duplicates(deals: list[Deal]) -> list[Deal]:
     merged: list[Deal] = []
     for d in deals:
         for m in merged:
-            if same_key(m) == same_key(d) and m.rank == d.rank and _overlap(m, d) is not False:
+            if same_key(m) == same_key(d) and _overlap(m, d) is not False:
                 m.urls += [u for u in d.urls if u not in m.urls]
                 m.sources += [s for s in d.sources if s not in m.sources]
                 for k in ("booking_start", "booking_end", "travel_start", "travel_end", "official_url"):
                     if not getattr(m, k) and getattr(d, k):
                         setattr(m, k, getattr(d, k))
+                # 税・片道往復・価格の根拠は、はっきり書いてあった記事の方を採る
+                if m.tax == "不明" and d.tax != "不明":
+                    m.tax = d.tax
+                if m.trip == "不明" and d.trip != "不明":
+                    m.trip = d.trip
+                if m.basis == "from" and d.basis == "route":
+                    m.basis = "route"
+                m.conditions += [c for c in d.conditions if c not in m.conditions]
                 if d.presale:
                     m.presale = True
                 break
@@ -245,10 +258,17 @@ def run(args) -> int:
 
     # 4) 抽出（前回の持ち越し分から先に）
     queue = [Article(**p) for p in state.pending] + cands
-    extractor = Extractor(settings, make_gemini_caller(config.env("GEMINI_API_KEY")))
+    g = settings["gemini"]
+    extractor = Extractor(settings, make_gemini_caller(config.env("GEMINI_API_KEY"), g["timeout_sec"]))
     results: list[Extraction] = []
     carry: list[Article] = []
+    started = time.monotonic()
     for i, a in enumerate(queue):
+        if time.monotonic() - started > g["time_budget_sec"]:
+            log.warning("抽出の時間上限に達した。残り%d件は次回へ（見つけた分は先に通知する）", len(queue) - i)
+            carry = queue[i:]
+            break
+        log.info("抽出 %d/%d: %s", i + 1, len(queue), a.title[:40])
         try:
             r = extractor.extract(a)
         except AllModelsUnavailable as e:
@@ -266,10 +286,11 @@ def run(args) -> int:
         if r.ok:
             deals.extend(deals_from_extraction(r, rules))
     deals.extend(sky_deals)
+    record_history(deals, state, now)
+    deals = merge_duplicates(deals)          # 判定の前にまとめる（税などの情報を寄せてから判定するため）
     for d in deals:
         judge(d, rules, now)
-    record_history(deals, state, now)
-    hits = merge_duplicates([d for d in deals if d.rank])
+    hits = [d for d in deals if d.rank]
     fresh = [d for d in hits if not already_notified(d, state, now)]
     recommend_major(fresh, rules)
 

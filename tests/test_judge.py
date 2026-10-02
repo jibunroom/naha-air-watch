@@ -141,3 +141,16 @@ def test_major_recommendation(rules):
     major = judge(deal(rules, "ANA", "FUK", 6500, tax="税込"), rules, NOW)
     recommend_major([lcc, major], rules)
     assert major.note and "荷物込み" in major.note
+
+
+def test_only_naha_departures_are_notified(rules):
+    """仕様は那覇発。石垣→台北などは履歴にだけ残す（2026-10-02 の実走で混ざった）。"""
+    d = judge(Deal(airline="タイガーエア台湾", airline_type="LCC", origin="ISG", destination="TPE",
+                   price=8500, tax="税込"), rules, NOW)
+    assert d.rank is None and "那覇発ではない" in d.reason
+
+
+def test_package_tours_are_v2(rules):
+    """Peach TRAVEL（航空券＋ホテル）を運賃として判定していた実例。"""
+    d = judge(deal(rules, "ピーチ", "ICN", 22800, trip="往復", product="パッケージ"), rules, NOW)
+    assert d.rank is None and "パッケージ" in d.reason

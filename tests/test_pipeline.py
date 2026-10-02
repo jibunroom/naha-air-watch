@@ -34,9 +34,15 @@ def test_title_filter_needs_sale_words():
     assert not title_pass(art("JAL、ピンクリボン月間の啓発キャンペーンを実施"))
 
 
-def test_list_page_links_pass_title_filter():
-    assert title_pass(art("創業15周年記念セール", source_kind="page_links"))
-    assert title_pass(art("タイムセール", source_kind="page_links"))
+def test_sale_list_links_pass_title_filter():
+    assert title_pass(art("国内線航空券タイムセール", source_kind="sale_list"))
+    assert title_pass(art("ANAにキュン！（9月）", source_kind="sale_list"))
+
+
+def test_general_news_list_still_needs_sale_words():
+    """スカイマークのお知らせ一覧には臨時便やプレゼント企画も混ざる。"""
+    assert not title_pass(art("臨時便の運航について【2026年10月分】", source_kind="page_links"))
+    assert title_pass(art("SKYセール開催のお知らせ", source_kind="page_links"))
 
 
 def test_body_with_okinawa_passes(rules):
@@ -176,3 +182,26 @@ def test_body_has_required_items(rules):
     assert "<b>締切 10/3(土)23:59" in html_body      # HTMLでは太字
     assert "預け荷物は別料金" in text
     assert d.rank == INSTANT
+
+
+def test_merge_takes_the_more_specific_tax():
+    """同じセールで1サイトは税不明、別サイトは「諸税別途」→ 税別として判定する。"""
+    a = tiger("https://monomoney-living.com/y/", "2026-10-01T11:00")
+    a.tax, a.rank = "不明", None
+    b = tiger("https://dsk.ne.jp/news/x.html", "2026-10-02T11:00")
+    b.rank = None
+    merged = merge_duplicates([a, b])
+    assert len(merged) == 1 and merged[0].tax == "税別"
+
+
+def test_route_specific_exclusion_stays_on_its_route(rules):
+    """実例: イースター航空の除外期間 10/1〜10/24 は鹿児島−仁川だけ。那覇発に付けてはいけない。"""
+    d = {**BASE, "airline": "イースター航空", "fares": [
+        {"origin": "OKA", "destination": "ICN", "price": 3900, "currency": "JPY", "tax": "税別",
+         "trip": "片道", "basis": "route", "note": None, "excluded_periods": []},
+        {"origin": "OKA", "destination": "PUS", "price": 3500, "currency": "JPY", "tax": "税別",
+         "trip": "片道", "basis": "route", "note": None,
+         "excluded_periods": [{"start": "2026-10-01", "end": "2026-10-10", "label": None}]}]}
+    deals = deals_from_extraction(ext(d), rules)
+    assert deals[0].excluded_periods == []
+    assert deals[1].excluded_periods[0]["end"] == "2026-10-10"

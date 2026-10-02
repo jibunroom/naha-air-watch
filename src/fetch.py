@@ -197,7 +197,9 @@ def parse_page_links(html: str, page_url: str, source: dict) -> list[Article]:
         published = f"{m.group(1)}-{m.group(2)}-{m.group(3)}" if m else None
         out.append(Article(source=source["name"], title=a.get_text(" ", strip=True)[:120],
                            url=url, published=published, official=bool(source.get("official")),
-                           airline_hint=source.get("airline"), source_kind="page_links"))
+                           airline_hint=source.get("airline"),
+                           # セール一覧のリンクはセール記事そのもの。お知らせ一覧は混ざり物なので区別する
+                           source_kind="sale_list" if source.get("sale_list") else "page_links"))
     return out
 
 

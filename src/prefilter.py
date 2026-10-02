@@ -18,8 +18,11 @@ ALL_ROUTE_WORDS = ("全路線", "全線", "国内線全", "国際線全", "ア�
 
 
 def title_pass(article: Article) -> bool:
-    """1段目。一覧ページから拾ったリンクはセール記事なので素通し。"""
-    if article.source_kind == "page_links":
+    """1段目。セール一覧ページから拾ったリンクはセール記事そのものなので素通し。
+
+    スカイマークの「お知らせ」のような一般の一覧は臨時便・プレゼント企画も混ざるので通常どおり判定する。
+    """
+    if article.source_kind == "sale_list":
         return True
     return any(w in article.title for w in SALE_WORDS)
 

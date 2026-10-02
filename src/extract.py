@@ -50,8 +50,9 @@ JSONオブジェクトを1つだけ返す。説明文・マークダウン禁止
 - 沖縄の路線の運賃が載っていれば、表の中の行も含めてすべて fares に入れる。
 - 「那覇－台北」のように方向が書かれていない路線は、origin に沖縄側の空港を入れる。
 - 沖縄を発着しない路線の運賃は fares に入れない。
-- 沖縄の路線名は書かれているが個別の価格が無い場合（例:「那覇＝高雄線もセール対象」）は、その路線を
-  fares に入れ、price に該当エリアの「〜円から」を入れ、basis を "from" にする。個別の価格なら basis は "route"。
+- basis: その路線自身の価格が書かれていれば必ず "route"（「片道3,900円～」のように「～」「から」が付いていても route）。
+  沖縄の路線名だけ書かれていて個別の価格が無い場合（例:「那覇＝高雄線もセール対象」）に限り、その路線を
+  fares に入れ、price に該当エリアの「〜円から」を入れ、basis を "from" にする。
 - 全路線・国内全路線などが対象で、沖縄の路線名も個別価格も書かれていない場合は fares を空にし、
   記事の「〜円から」を from_prices に入れる。
 - 価格が片道か往復かを trip に必ず入れる。記事が往復料金なら往復のまま書く（勝手に半額にしない）。
@@ -62,17 +63,19 @@ JSONオブジェクトを1つだけ返す。説明文・マークダウン禁止
 出力形式（キーはすべて必須）:
 {{
  "is_sale": true,                  // 運賃のセール・割引運賃・キャンペーン運賃の告知なら true。就航・増便・制服などは false
+ "product": "航空券|パッケージ|その他", // 航空券＋ホテルなどのセット（パッケージツアー）は "パッケージ"
  "airline": "航空会社名",
  "airline_type": "LCC|大手|中堅|不明",
  "sale_name": "セール名",
  "okinawa_included": "yes|no|unknown", // yes=沖縄路線が対象と明記 / no=対象外が明らか / unknown=全路線対象などで明記なし
- "fares": [{{"origin":"OKA","destination":"TPE","price":8500,"currency":"JPY","tax":"税込|税別|不明","trip":"片道|往復","basis":"route|from","note":null}}],
+ "fares": [{{"origin":"OKA","destination":"TPE","price":8500,"currency":"JPY","tax":"税込|税別|不明","trip":"片道|往復","basis":"route|from","excluded_periods":[],"note":null}}],
  "from_prices": [{{"area":"国内|国際|全体","price":3790,"currency":"JPY","tax":"税込|税別|不明","trip":"片道|往復"}}],
  "booking_start": "YYYY-MM-DDTHH:MM",
  "booking_end": "YYYY-MM-DDTHH:MM",
  "travel_start": "YYYY-MM-DD",
  "travel_end": "YYYY-MM-DD",
- "excluded_periods": [{{"start":"YYYY-MM-DD","end":"YYYY-MM-DD","label":"年末年始"}}],
+ "excluded_periods": [{{"start":"YYYY-MM-DD","end":"YYYY-MM-DD","label":"年末年始"}}], // 全路線共通の除外期間だけ。
+                                   // 一部の路線だけの除外は、その路線の fares[].excluded_periods に入れる（沖縄以外の路線の除外は書かない）
  "peak": {{"gw": true, "obon": true, "nenmatsu": false}}, // 搭乗期間に含まれ、除外もされていなければ true。不明は null
  "member_only": false,             // 会員限定（先行販売のみ会員限定なら false にして presale を true）
  "presale": false,
@@ -83,7 +86,7 @@ JSONオブジェクトを1つだけ返す。説明文・マークダウン禁止
 RETRY_NOTE = "前回の出力はJSONとして不正だった。指定の形式のJSONオブジェクトだけを返せ。"
 
 DEFAULTS = {
-    "is_sale": False, "airline": None, "airline_type": "不明", "sale_name": None,
+    "is_sale": False, "product": "航空券", "airline": None, "airline_type": "不明", "sale_name": None,
     "okinawa_included": "unknown", "fares": [], "from_prices": [],
     "booking_start": None, "booking_end": None, "travel_start": None, "travel_end": None,
     "excluded_periods": [], "peak": {"gw": None, "obon": None, "nenmatsu": None},
@@ -143,6 +146,11 @@ def _valid_dt(v) -> str | None:
     return None
 
 
+def _periods(v) -> list[dict]:
+    return [{"start": _valid_dt(p.get("start")), "end": _valid_dt(p.get("end")), "label": p.get("label")}
+            for p in (v or []) if isinstance(p, dict)]
+
+
 def normalize(raw: dict) -> tuple[dict, list[str]]:
     """スキーマ検証と正規化。誤抽出は捨てて warnings に残す（黙って消さない）。"""
     for key in REQUIRED:
@@ -175,6 +183,7 @@ def normalize(raw: dict) -> tuple[dict, list[str]]:
             "tax": f.get("tax") if f.get("tax") in ("税込", "税別") else "不明",
             "trip": f.get("trip") if f.get("trip") in ("片道", "往復") else "不明",
             "basis": "from" if f.get("basis") == "from" else "route",
+            "excluded_periods": _periods(f.get("excluded_periods")),
             "note": f.get("note"),
         })
     d["fares"] = fares
@@ -192,25 +201,29 @@ def normalize(raw: dict) -> tuple[dict, list[str]]:
 
     for key in ("booking_start", "booking_end", "travel_start", "travel_end"):
         d[key] = _valid_dt(d.get(key))
-    d["excluded_periods"] = [
-        {"start": _valid_dt(p.get("start")), "end": _valid_dt(p.get("end")), "label": p.get("label")}
-        for p in (d.get("excluded_periods") or []) if isinstance(p, dict)
-    ]
+    d["excluded_periods"] = _periods(d.get("excluded_periods"))
     peak = d.get("peak") if isinstance(d.get("peak"), dict) else {}
     d["peak"] = {k: peak.get(k) for k in ("gw", "obon", "nenmatsu")}
     if d.get("okinawa_included") not in ("yes", "no", "unknown"):
         d["okinawa_included"] = "unknown"
     d["is_sale"] = bool(d.get("is_sale"))
+    if d.get("product") not in ("航空券", "パッケージ", "その他"):
+        d["product"] = "航空券"
     d["conditions"] = [str(c) for c in (d.get("conditions") or [])]
     return d, warnings
 
 
-def make_gemini_caller(api_key: str):
-    """call(model, system, user) -> 応答テキスト。モデルは呼ぶたびに選べる（予備モデルへの切替用）。"""
+def make_gemini_caller(api_key: str, timeout_sec: int = 60):
+    """call(model, system, user) -> 応答テキスト。モデルは呼ぶたびに選べる（予備モデルへの切替用）。
+
+    タイムアウト必須。無しだと応答の返らない1回の呼び出しで実行全体が止まる
+    （2026-10-02 に実際に22分止まった。Actions なら30分で強制終了＝その日のメールが出ない）。
+    """
     from google import genai
     from google.genai import types
 
-    client = genai.Client(api_key=api_key)
+    client = genai.Client(api_key=api_key,
+                          http_options=types.HttpOptions(timeout=timeout_sec * 1000))
 
     def call(model: str, system: str, user: str) -> str:
         resp = client.models.generate_content(

@@ -190,3 +190,15 @@ def test_parse_skymark_csv():
     assert rows[1] == {"origin": "OKA", "via": None, "destination": "HND",
                        "imatoku": 9100, "tasutoku": 12100, "note": None}
     assert rows[2]["imatoku"] == 4100
+
+
+def test_timeout_counts_as_busy():
+    """応答の返らない呼び出しは「混雑」扱い＝次のモデルへ（2026-10-02 に22分止まった実例）。"""
+    class ReadTimeout(Exception):
+        pass
+
+    class ConnectTimeout(Exception):
+        pass
+
+    assert classify_error(ReadTimeout("timed out")) == "busy"
+    assert classify_error(ConnectTimeout("")) == "busy"
