@@ -36,6 +36,7 @@ class Article:
     official: bool = False
     airline_hint: str | None = None   # 公式発表なら発表元の航空会社
     body: str = ""
+    source_kind: str = "rss"
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -105,6 +106,19 @@ class Fetcher:
         return None
 
 
+# --- URL ---
+
+
+def normalize_url(url: str) -> str:
+    """utm_* などの追跡用パラメータと #以降を外し、同じ記事を同じURLにそろえる。"""
+    from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+    p = urlsplit(url.strip())
+    query = [(k, v) for k, v in parse_qsl(p.query, keep_blank_values=True)
+             if not k.lower().startswith(("utm_", "fbclid", "gclid"))]
+    path = p.path or "/"
+    return urlunsplit((p.scheme, p.netloc.lower(), path, urlencode(query), ""))
+
+
 # --- RSS ---
 
 
@@ -132,7 +146,7 @@ def parse_feed(content: bytes, source: dict) -> list[Article]:
         out.append(Article(
             source=source["name"],
             title=(e.get("title") or "").strip(),
-            url=link,
+            url=normalize_url(link),
             published=_entry_date(e),
             official=bool(source.get("official")),
             airline_hint=source.get("airline"),
@@ -158,6 +172,42 @@ def read_feed(fetcher: Fetcher, source: dict, is_seen=lambda url: False) -> tupl
         if any(is_seen(a.url) for a in items):
             break   # ここから先は前回までに読んだ範囲
     return articles, True
+
+
+# --- 一覧ページ（RSSから溢れた・長く続いているセール記事の回収用） ---
+
+_URL_DATE = re.compile(r"_(20\d{2})(\d{2})(\d{2})/?$")
+
+
+def parse_page_links(html: str, page_url: str, source: dict) -> list[Article]:
+    """一覧ページの本文中から、個別記事へのリンクを Article にする（ネット不要・テスト可能）。"""
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(html, "html.parser")
+    main = soup.find("article") or soup.find("main") or soup
+    pattern = re.compile(source.get("link_pattern") or ".")
+    out, seen = [], set()
+    for a in main.find_all("a", href=True):
+        url = normalize_url(urljoin(page_url, a["href"]))
+        if url in seen or url.rstrip("/") == normalize_url(page_url).rstrip("/"):
+            continue
+        if not pattern.search(url):
+            continue
+        seen.add(url)
+        m = _URL_DATE.search(urlparse(url).path)
+        published = f"{m.group(1)}-{m.group(2)}-{m.group(3)}" if m else None
+        out.append(Article(source=source["name"], title=a.get_text(" ", strip=True)[:120],
+                           url=url, published=published, official=bool(source.get("official")),
+                           airline_hint=source.get("airline"), source_kind="page_links"))
+    return out
+
+
+def read_page_links(fetcher: "Fetcher", source: dict) -> tuple[list[Article], bool]:
+    r = fetcher.get(source["url"])
+    if r is None:
+        return [], False
+    r.encoding = r.apparent_encoding or r.encoding
+    items = parse_page_links(r.text, source["url"], source)
+    return items, bool(items)
 
 
 # --- 本文 ---

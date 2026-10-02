@@ -50,7 +50,9 @@ JSONオブジェクトを1つだけ返す。説明文・マークダウン禁止
 - 沖縄の路線の運賃が載っていれば、表の中の行も含めてすべて fares に入れる。
 - 「那覇－台北」のように方向が書かれていない路線は、origin に沖縄側の空港を入れる。
 - 沖縄を発着しない路線の運賃は fares に入れない。
-- 全路線・国内全路線などが対象で、沖縄路線の個別価格が書かれていない場合は fares を空にし、
+- 沖縄の路線名は書かれているが個別の価格が無い場合（例:「那覇＝高雄線もセール対象」）は、その路線を
+  fares に入れ、price に該当エリアの「〜円から」を入れ、basis を "from" にする。個別の価格なら basis は "route"。
+- 全路線・国内全路線などが対象で、沖縄の路線名も個別価格も書かれていない場合は fares を空にし、
   記事の「〜円から」を from_prices に入れる。
 - 価格が片道か往復かを trip に必ず入れる。記事が往復料金なら往復のまま書く（勝手に半額にしない）。
 
@@ -64,7 +66,7 @@ JSONオブジェクトを1つだけ返す。説明文・マークダウン禁止
  "airline_type": "LCC|大手|中堅|不明",
  "sale_name": "セール名",
  "okinawa_included": "yes|no|unknown", // yes=沖縄路線が対象と明記 / no=対象外が明らか / unknown=全路線対象などで明記なし
- "fares": [{{"origin":"OKA","destination":"TPE","price":8500,"currency":"JPY","tax":"税込|税別|不明","trip":"片道|往復","note":null}}],
+ "fares": [{{"origin":"OKA","destination":"TPE","price":8500,"currency":"JPY","tax":"税込|税別|不明","trip":"片道|往復","basis":"route|from","note":null}}],
  "from_prices": [{{"area":"国内|国際|全体","price":3790,"currency":"JPY","tax":"税込|税別|不明","trip":"片道|往復"}}],
  "booking_start": "YYYY-MM-DDTHH:MM",
  "booking_end": "YYYY-MM-DDTHH:MM",
@@ -172,6 +174,7 @@ def normalize(raw: dict) -> tuple[dict, list[str]]:
             "currency": (f.get("currency") or "JPY").upper(),
             "tax": f.get("tax") if f.get("tax") in ("税込", "税別") else "不明",
             "trip": f.get("trip") if f.get("trip") in ("片道", "往復") else "不明",
+            "basis": "from" if f.get("basis") == "from" else "route",
             "note": f.get("note"),
         })
     d["fares"] = fares

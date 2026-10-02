@@ -1,0 +1,106 @@
+# 判定ルール（仕様「判定ルールと価格しきい値」）
+# 金額はすべて片道・税込の総額で比べる。ここを書き換えればコードを触らずに調整できる。
+#
+#   cheap   … これ以下なら「安い」で通知
+#   instant … これ以下なら「即買い」（null は設定なし）
+#   繁忙期（GW・お盆・年末年始）が搭乗期間に含まれると「安い」→「即買い」に1つ上げる
+#   （「定番」「対象外」は上げない。仕様のテストケース ANA 那覇→石垣 5,720円・
+#     トリニティ 那覇→ソウル 23,370円 はどちらも年末年始を含むが「通知なし」が期待値のため）
+
+categories:
+  国内LCC:        {cheap: 5000,  instant: 4000,  standard: "6,000円前後"}
+  国内大手:       {cheap: 10000, instant: null,  standard: "11,000円台"}   # 即買いは「繁忙期で1万円以下」＝繁忙期加点で到達
+  県内離島:       {cheap: 4999,  instant: 4000,  standard: "5,000円台"}    # 安いは「5,000円未満」
+  台湾:           {cheap: 10000, instant: 8500}
+  韓国:           {cheap: 12000, instant: 8000,  provisional: true}
+  香港:           {cheap: 12000, instant: 11000, provisional: true}
+  バンコク:       {cheap: 18000, instant: 15000, standard: "2万円前後"}
+  シンガポール:   {cheap: 20000, instant: 15000, provisional: true}
+  フィリピン:     {cheap: 20000, instant: null,  provisional: true}
+  ベトナム・マレーシア: {cheap: 25000, instant: null, provisional: true}
+
+# 行き先（仕様「対象路線」）。国内は航空会社の種類で 国内LCC／国内大手 に分ける。
+# 後から足すときはここに1行追加する（例: 京都なら ITM・KIX はもう入っている）。
+destinations:
+  NRT: {name: 成田, region: 国内}          # 羽田とは別の行き先として扱う（仕様）
+  HND: {name: 羽田, region: 国内}
+  KIX: {name: 関西, region: 国内}
+  ITM: {name: 伊丹, region: 国内}
+  UKB: {name: 神戸, region: 国内}          # 関西圏（仕様の「京都→伊丹・関西」と同じ考え方で追加）
+  NGO: {name: 中部, region: 国内}
+  CTS: {name: 新千歳, region: 国内}
+  FUK: {name: 福岡, region: 国内}
+  ISG: {name: 石垣, category: 県内離島}
+  MMY: {name: 宮古, category: 県内離島}
+  SHI: {name: 下地島（宮古）, category: 県内離島}
+  UEO: {name: 久米島, category: 県内離島}
+  TPE: {name: 台北（桃園）, category: 台湾}
+  TSA: {name: 台北（松山）, category: 台湾}
+  RMQ: {name: 台中, category: 台湾}
+  KHH: {name: 高雄, category: 台湾}
+  ICN: {name: ソウル（仁川）, category: 韓国}
+  GMP: {name: ソウル（金浦）, category: 韓国}
+  PUS: {name: 釜山, category: 韓国}
+  HKG: {name: 香港, category: 香港}
+  BKK: {name: バンコク, category: バンコク}
+  DMK: {name: バンコク（ドンムアン）, category: バンコク}
+  SIN: {name: シンガポール, category: シンガポール}
+  MNL: {name: マニラ, category: フィリピン}
+  CEB: {name: セブ, category: フィリピン}
+  CRK: {name: クラーク, category: フィリピン}
+  SGN: {name: ホーチミン, category: ベトナム・マレーシア}
+  HAN: {name: ハノイ, category: ベトナム・マレーシア}
+  DAD: {name: ダナン, category: ベトナム・マレーシア}
+  KUL: {name: クアラルンプール, category: ベトナム・マレーシア}
+
+# 国内線をどちらの基準で見るか（航空会社の種類 → 区分）
+domestic_category:
+  LCC: 国内LCC
+  中堅: 国内LCC   # スカイマーク等。仕様に無いため LCC と同じ基準。大手基準だと普段の最安（羽田9,100円）が毎日「安い」になる
+  大手: 国内大手
+  不明: 国内大手  # 逃さない優先で、通知されやすい方（ゆるい基準）に倒す
+
+# 税別表記に足す概算（円・片道）。税込／税別が「不明」は足さない（逃さない優先）
+tax_estimate:
+  国内: 500
+  国際: 1500      # 仕様のテストケース（タイガーエア 8,500円税別→即買い 等）がすべて通る値。実際は2,000〜3,000円のことも
+
+# 繁忙期（MM-DD）。搭乗期間と重なり、除外期間で消されていなければ「対象」
+peaks:
+  GW:     ["04-29", "05-05"]
+  お盆:   ["08-11", "08-16"]
+  年末年始: ["12-27", "01-04"]
+
+# 予約締切がこの時間以内なら件名に【急ぎ】
+urgent_hours: 24
+
+# 大手推し: 同じ行き先で LCC と大手の差がこの金額以内なら、大手側に「荷物込みならこっち」
+major_recommend_diff: 2000
+
+# 航空会社の表記ゆれ → 正式名、種類、那覇に就航しているか。
+# naha: true の会社の「全路線セール」は、記事に那覇の文字が無くても拾う（逃さないため）
+airlines:
+  ピーチ:               {aliases: [Peach, Peach Aviation, ピーチ・アビエーション], type: LCC, naha: true}
+  ジェットスター:       {aliases: [ジェットスター・ジャパン, Jetstar, Jetstar Japan], type: LCC, naha: true}
+  スカイマーク:         {aliases: [Skymark, SKYMARK], type: 中堅, naha: true}
+  ANA:                  {aliases: [全日空, 全日本空輸, ANAウイングス], type: 大手, naha: true}
+  JAL:                  {aliases: [日本航空, ジェイエア, J-AIR], type: 大手, naha: true}
+  JTA:                  {aliases: [日本トランスオーシャン航空, 日本トランスオーシャン], type: 大手, naha: true}
+  RAC:                  {aliases: [琉球エアーコミューター], type: 大手, naha: true}
+  ソラシドエア:         {aliases: [ソラシド, Solaseed Air], type: 大手, naha: true}
+  タイガーエア台湾:     {aliases: [タイガーエア・台湾, Tigerair Taiwan, 台湾虎航], type: LCC, naha: true}
+  チャイナエアライン:   {aliases: [中華航空, China Airlines], type: 大手, naha: true}
+  エバー航空:           {aliases: [長栄航空, EVA Air], type: 大手, naha: true}
+  スターラックス航空:   {aliases: [スターラックス, STARLUX], type: 大手, naha: true}
+  イースター航空:       {aliases: [イースタージェット, Eastar Jet], type: LCC, naha: true}
+  トリニティ航空:       {aliases: [ティーウェイ航空, ティーウェイ, "T'way"], type: LCC, naha: true}
+  ジンエアー:           {aliases: [Jin Air], type: LCC, naha: true}
+  チェジュ航空:         {aliases: [Jeju Air], type: LCC, naha: true}
+  エアプサン:           {aliases: [Air Busan], type: LCC, naha: true}
+  大韓航空:             {aliases: [Korean Air], type: 大手, naha: true}
+  アシアナ航空:         {aliases: [Asiana], type: 大手, naha: true}
+  香港エクスプレス:     {aliases: [HK Express, 香港エクスプレス航空], type: LCC, naha: true}
+  キャセイパシフィック航空: {aliases: [キャセイ, Cathay Pacific], type: 大手, naha: true}
+  エアアジア:           {aliases: [AirAsia, タイ・エアアジア, エアアジアX, タイ・エアアジアX], type: LCC, naha: true}
+  タイ・ライオン・エア: {aliases: [タイ・ライオン, タイライオンエア, Thai Lion Air], type: LCC, naha: true}
+  スクート:             {aliases: [Scoot], type: LCC, naha: true}
