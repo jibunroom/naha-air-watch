@@ -1,0 +1,72 @@
+{
+ "ジェットスター（PR TIMES）": {
+  "fail_streak": 0,
+  "alerted": false,
+  "daily": {
+   "2026-10-02": 193
+  }
+ },
+ "ピーチ（PR TIMES）": {
+  "fail_streak": 0,
+  "alerted": false,
+  "daily": {
+   "2026-10-02": 32
+  }
+ },
+ "スカイマーク（運賃CSV）": {
+  "fail_streak": 0,
+  "alerted": false,
+  "daily": {
+   "2026-10-02": 88
+  }
+ },
+ "スカイマーク（お知らせ）": {
+  "fail_streak": 0,
+  "alerted": false,
+  "daily": {
+   "2026-10-02": 64
+  }
+ },
+ "モノリビ": {
+  "fail_streak": 0,
+  "alerted": false,
+  "daily": {
+   "2026-10-02": 20
+  }
+ },
+ "モノリビ 国内線セール一覧": {
+  "fail_streak": 0,
+  "alerted": false,
+  "daily": {
+   "2026-10-02": 16
+  }
+ },
+ "モノリビ 国際線セール一覧": {
+  "fail_streak": 0,
+  "alerted": false,
+  "daily": {
+   "2026-10-02": 33
+  }
+ },
+ "TRAICY": {
+  "fail_streak": 0,
+  "alerted": false,
+  "daily": {
+   "2026-10-02": 90
+  }
+ },
+ "sky-budget": {
+  "fail_streak": 0,
+  "alerted": false,
+  "daily": {
+   "2026-10-02": 30
+  }
+ },
+ "LCCjp": {
+  "fail_streak": 0,
+  "alerted": false,
+  "daily": {
+   "2026-10-02": 30
+  }
+ }
+}

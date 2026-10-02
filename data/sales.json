@@ -1,0 +1,227 @@
+[
+ {
+  "key": [
+   "スカイマーク",
+   "OKA",
+   "HND",
+   4100,
+   false
+  ],
+  "airline": "スカイマーク",
+  "origin": "OKA",
+  "destination": "HND",
+  "price": 4100,
+  "rank": "即買い",
+  "booking_start": "2026-08-25T07:00",
+  "booking_end": null,
+  "urls": [
+   "https://www.skymark.co.jp/ja/news/detail/1196186_1625.html"
+  ],
+  "notified_at": "2026-10-02T21:09+09:00"
+ },
+ {
+  "key": [
+   "スカイマーク",
+   "OKA",
+   "UKB",
+   4100,
+   false
+  ],
+  "airline": "スカイマーク",
+  "origin": "OKA",
+  "destination": "UKB",
+  "price": 4100,
+  "rank": "即買い",
+  "booking_start": "2026-08-25T07:00",
+  "booking_end": null,
+  "urls": [
+   "https://www.skymark.co.jp/ja/news/detail/1196186_1625.html"
+  ],
+  "notified_at": "2026-10-02T21:09+09:00"
+ },
+ {
+  "key": [
+   "スカイマーク",
+   "OKA",
+   "NGO",
+   4100,
+   false
+  ],
+  "airline": "スカイマーク",
+  "origin": "OKA",
+  "destination": "NGO",
+  "price": 4100,
+  "rank": "即買い",
+  "booking_start": "2026-08-25T07:00",
+  "booking_end": null,
+  "urls": [
+   "https://www.skymark.co.jp/ja/news/detail/1196186_1625.html"
+  ],
+  "notified_at": "2026-10-02T21:09+09:00"
+ },
+ {
+  "key": [
+   "スカイマーク",
+   "OKA",
+   "FUK",
+   4100,
+   false
+  ],
+  "airline": "スカイマーク",
+  "origin": "OKA",
+  "destination": "FUK",
+  "price": 4100,
+  "rank": "即買い",
+  "booking_start": "2026-08-25T07:00",
+  "booking_end": null,
+  "urls": [
+   "https://www.skymark.co.jp/ja/news/detail/1196186_1625.html"
+  ],
+  "notified_at": "2026-10-02T21:09+09:00"
+ },
+ {
+  "key": [
+   "スカイマーク",
+   "OKA",
+   "SHI",
+   4100,
+   false
+  ],
+  "airline": "スカイマーク",
+  "origin": "OKA",
+  "destination": "SHI",
+  "price": 4100,
+  "rank": "即買い",
+  "booking_start": "2026-08-25T07:00",
+  "booking_end": null,
+  "urls": [
+   "https://www.skymark.co.jp/ja/news/detail/1196186_1625.html"
+  ],
+  "notified_at": "2026-10-02T21:09+09:00"
+ },
+ {
+  "key": [
+   "イースター航空",
+   "OKA",
+   "ICN",
+   3900,
+   false
+  ],
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 3900,
+  "rank": "即買い",
+  "booking_start": "2026-10-01T10:00",
+  "booking_end": "2026-10-07T23:59",
+  "urls": [
+   "https://monomoney-living.com/easterjet-timesale_20261001/",
+   "https://sky-budget.com/2026/10/01/eastar-jet-sale-oct2026/"
+  ],
+  "notified_at": "2026-10-02T21:09+09:00"
+ },
+ {
+  "key": [
+   "イースター航空",
+   "OKA",
+   "PUS",
+   3500,
+   false
+  ],
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 3500,
+  "rank": "即買い",
+  "booking_start": "2026-10-01T10:00",
+  "booking_end": "2026-10-07T23:59",
+  "urls": [
+   "https://monomoney-living.com/easterjet-timesale_20261001/",
+   "https://sky-budget.com/2026/10/01/eastar-jet-sale-oct2026/"
+  ],
+  "notified_at": "2026-10-02T21:09+09:00"
+ },
+ {
+  "key": [
+   "タイガーエア台湾",
+   "OKA",
+   "TPE",
+   8500,
+   false
+  ],
+  "airline": "タイガーエア台湾",
+  "origin": "OKA",
+  "destination": "TPE",
+  "price": 8500,
+  "rank": "即買い",
+  "booking_start": "2026-10-01T11:00",
+  "booking_end": "2026-10-03T23:59",
+  "urls": [
+   "https://monomoney-living.com/tigerair-timesale_20261001/",
+   "https://www.traicy.com/posts/20260929383374/"
+  ],
+  "notified_at": "2026-10-02T21:09+09:00"
+ },
+ {
+  "key": [
+   "タイガーエア台湾",
+   "OKA",
+   "RMQ",
+   8500,
+   false
+  ],
+  "airline": "タイガーエア台湾",
+  "origin": "OKA",
+  "destination": "RMQ",
+  "price": 8500,
+  "rank": "即買い",
+  "booking_start": "2026-10-01T11:00",
+  "booking_end": "2026-10-03T23:59",
+  "urls": [
+   "https://monomoney-living.com/tigerair-timesale_20261001/",
+   "https://www.traicy.com/posts/20260929383374/"
+  ],
+  "notified_at": "2026-10-02T21:09+09:00"
+ },
+ {
+  "key": [
+   "タイガーエア台湾",
+   "OKA",
+   "KHH",
+   8500,
+   false
+  ],
+  "airline": "タイガーエア台湾",
+  "origin": "OKA",
+  "destination": "KHH",
+  "price": 8500,
+  "rank": "即買い",
+  "booking_start": "2026-10-01T11:00",
+  "booking_end": "2026-10-03T23:59",
+  "urls": [
+   "https://monomoney-living.com/tigerair-timesale_20261001/",
+   "https://www.traicy.com/posts/20260929383374/"
+  ],
+  "notified_at": "2026-10-02T21:09+09:00"
+ },
+ {
+  "key": [
+   "スカイマーク",
+   "OKA",
+   "SHI",
+   4100,
+   true
+  ],
+  "airline": "スカイマーク",
+  "origin": "OKA",
+  "destination": "SHI",
+  "price": 4100,
+  "rank": "安い",
+  "booking_start": null,
+  "booking_end": null,
+  "urls": [
+   "https://www.skymark.co.jp/ja/campaign/sale/index.php"
+  ],
+  "notified_at": "2026-10-02T21:09+09:00"
+ }
+]
