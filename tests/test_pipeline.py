@@ -205,3 +205,49 @@ def test_route_specific_exclusion_stays_on_its_route(rules):
     deals = deals_from_extraction(ext(d), rules)
     assert deals[0].excluded_periods == []
     assert deals[1].excluded_periods[0]["end"] == "2026-10-10"
+
+
+def test_from_price_is_never_judged_as_a_route_price(rules):
+    """実例: スカイマークのお知らせは路線名を並べ「4,100円〜」だけ。那覇→羽田 4,100円の即買いと誤通知した。"""
+    fares = [{"origin": "OKA", "destination": c, "price": 4100, "currency": "JPY", "tax": "税込",
+              "trip": "片道", "basis": "from", "note": None, "excluded_periods": []}
+             for c in ("HND", "UKB", "NGO", "FUK", "SHI")]
+    d = {**BASE, "airline": "スカイマーク", "fares": fares,
+         "travel_start": "2026-10-25", "travel_end": "2027-03-27"}
+    deals = deals_from_extraction(ext(d), rules)
+    assert len(deals) == 1 and deals[0].destination == "全路線"
+    assert "羽田" in deals[0].note and "下地島" in deals[0].note
+    j = judge(deals[0], rules, NOW)
+    assert j.rank == ALL_ROUTES and "要確認" in j.reason
+
+
+def test_route_and_from_prices_mixed(rules):
+    fares = [{"origin": "OKA", "destination": "TPE", "price": 8500, "currency": "JPY", "tax": "税別",
+              "trip": "片道", "basis": "route", "note": None, "excluded_periods": []},
+             {"origin": "OKA", "destination": "KHH", "price": 6990, "currency": "JPY", "tax": "税別",
+              "trip": "片道", "basis": "from", "note": None, "excluded_periods": []}]
+    deals = deals_from_extraction(ext({**BASE, "airline": "x航空", "fares": fares}), rules)
+    assert [(x.destination, x.basis) for x in deals] == [("TPE", "route"), ("全路線", "from")]
+
+
+def test_body_falls_back_to_rss_summary_when_blocked():
+    """実例: LCCjp は GitHub のサーバーからの記事ページを 403 で拒否する。"""
+    from src.fetch import fetch_body
+
+    class Blocked:
+        def get(self, url):
+            return None
+
+    a = art("タイガーエア台湾 セール", summary="那覇－台北 片道8,500円 搭乗期間2027年3月28日から")
+    assert fetch_body(Blocked(), a, 9000)
+    assert "那覇－台北 片道8,500円" in a.body
+
+
+def test_no_summary_means_retry_next_time():
+    from src.fetch import fetch_body
+
+    class Blocked:
+        def get(self, url):
+            return None
+
+    assert not fetch_body(Blocked(), art("x"), 9000)

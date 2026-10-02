@@ -1,105 +1,6 @@
 [
  {
   "date": "2026-10-02",
-  "airline": "ジェットスター",
-  "origin": "OKA",
-  "destination": "KHH",
-  "price": 6990,
-  "tax": "税別",
-  "trip": "片道",
-  "basis": "from",
-  "source": "ジェットスター（PR TIMES）"
- },
- {
-  "date": "2026-10-02",
-  "airline": "スカイマーク",
-  "origin": "OKA",
-  "destination": "HND",
-  "price": 4100,
-  "tax": "税別",
-  "trip": "片道",
-  "basis": "from",
-  "source": "スカイマーク（お知らせ）"
- },
- {
-  "date": "2026-10-02",
-  "airline": "スカイマーク",
-  "origin": "SHI",
-  "destination": "HND",
-  "price": 4100,
-  "tax": "税別",
-  "trip": "片道",
-  "basis": "from",
-  "source": "スカイマーク（お知らせ）"
- },
- {
-  "date": "2026-10-02",
-  "airline": "スカイマーク",
-  "origin": "OKA",
-  "destination": "UKB",
-  "price": 4100,
-  "tax": "税別",
-  "trip": "片道",
-  "basis": "from",
-  "source": "スカイマーク（お知らせ）"
- },
- {
-  "date": "2026-10-02",
-  "airline": "スカイマーク",
-  "origin": "SHI",
-  "destination": "UKB",
-  "price": 4100,
-  "tax": "税別",
-  "trip": "片道",
-  "basis": "from",
-  "source": "スカイマーク（お知らせ）"
- },
- {
-  "date": "2026-10-02",
-  "airline": "スカイマーク",
-  "origin": "OKA",
-  "destination": "IBR",
-  "price": 4100,
-  "tax": "税別",
-  "trip": "片道",
-  "basis": "from",
-  "source": "スカイマーク（お知らせ）"
- },
- {
-  "date": "2026-10-02",
-  "airline": "スカイマーク",
-  "origin": "OKA",
-  "destination": "NGO",
-  "price": 4100,
-  "tax": "税別",
-  "trip": "片道",
-  "basis": "from",
-  "source": "スカイマーク（お知らせ）"
- },
- {
-  "date": "2026-10-02",
-  "airline": "スカイマーク",
-  "origin": "OKA",
-  "destination": "FUK",
-  "price": 4100,
-  "tax": "税別",
-  "trip": "片道",
-  "basis": "from",
-  "source": "スカイマーク（お知らせ）"
- },
- {
-  "date": "2026-10-02",
-  "airline": "スカイマーク",
-  "origin": "OKA",
-  "destination": "SHI",
-  "price": 4100,
-  "tax": "税別",
-  "trip": "片道",
-  "basis": "from",
-  "source": "スカイマーク（お知らせ）"
- },
- {
-  "date": "2026-10-02",
   "airline": "JAL",
   "origin": "OKA",
   "destination": "HND",
@@ -515,17 +416,6 @@
   "trip": "片道",
   "basis": "route",
   "source": "モノリビ 国際線セール一覧"
- },
- {
-  "date": "2026-10-02",
-  "airline": "フジドリームエアラインズ",
-  "origin": "OKA",
-  "destination": "FSZ",
-  "price": 27000,
-  "tax": "税別",
-  "trip": "片道",
-  "basis": "from",
-  "source": "sky-budget"
  },
  {
   "date": "2026-10-02",

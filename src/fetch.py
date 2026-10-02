@@ -37,6 +37,7 @@ class Article:
     airline_hint: str | None = None   # 公式発表なら発表元の航空会社
     body: str = ""
     source_kind: str = "rss"
+    summary: str = ""           # RSS の説明文（本文が取れないときの代わり）
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -128,6 +129,13 @@ def _paged(url: str, page: int) -> str:
     return url + ("&" if "?" in url else "?") + f"paged={page}"
 
 
+def _strip_html(html: str) -> str:
+    if not html:
+        return ""
+    from bs4 import BeautifulSoup
+    return BeautifulSoup(html, "html.parser").get_text("\n", strip=True)
+
+
 def _entry_date(e) -> str | None:
     for key in ("published_parsed", "updated_parsed"):
         t = e.get(key)
@@ -148,6 +156,7 @@ def parse_feed(content: bytes, source: dict) -> list[Article]:
             title=(e.get("title") or "").strip(),
             url=normalize_url(link),
             published=_entry_date(e),
+            summary=_strip_html(e.get("summary") or ""),
             official=bool(source.get("official")),
             airline_hint=source.get("airline"),
         ))
@@ -265,8 +274,16 @@ def focus_text(text: str, max_chars: int) -> str:
 
 
 def fetch_body(fetcher: Fetcher, article: Article, max_chars: int) -> bool:
+    """本文を取る。取れなければ RSS の説明文で代用する。
+
+    LCCjp は GitHub のサーバーからの記事ページを 403 で拒否する（手元のMacからは取れる）が、
+    RSS の説明文に価格・期間などの要点が入っている（2026-10-02 確認）。
+    """
     r = fetcher.get(article.url)
     if r is None:
+        if article.summary:
+            article.body = focus_text(f"{article.title}\n{article.summary}", max_chars)
+            return True
         return False
     r.encoding = r.apparent_encoding or r.encoding
     article.body = focus_text(extract_text(r.text, article.url), max_chars)

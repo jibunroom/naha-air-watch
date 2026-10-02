@@ -46,22 +46,33 @@ def deals_from_extraction(r: Extraction, rules: Rules) -> list[Deal]:
         conditions=d.get("conditions") or [], urls=[a.url], sources=[a.source],
         official_url=d.get("official_url"), product=d.get("product") or "航空券",
     )
-    out = []
+    out, from_routes, from_prices = [], [], list(d.get("from_prices") or [])
     for f in d.get("fares") or []:
+        if f.get("basis") == "from":
+            # 路線名だけで個別価格が無い。記事の最安を各路線の価格として判定すると誤る
+            # （実例: スカイマークのお知らせ「4,100円〜」を那覇→羽田にも当てはめ、即買いと誤通知）
+            from_routes.append(f["destination"])
+            from_prices.append({"area": "記事の最安", "price": f["price"]})
+            continue
         deal = Deal(origin=f["origin"], destination=f["destination"], price=f["price"],
                     currency=f["currency"], tax=f["tax"], trip=f["trip"],
-                    basis=f.get("basis", "route"), note=f.get("note"), **common)
+                    basis="route", note=f.get("note"), **common)
         # 除外期間は「全路線共通」＋「その路線だけ」。他の路線の除外は混ぜない
         deal.excluded_periods = list(common["excluded_periods"]) + list(f.get("excluded_periods") or [])
         out.append(deal)
-    if out:
-        return out
-    # 那覇の個別価格が無い全路線セール。沖縄対象と明記、または那覇就航会社なら拾う（逃さない）
-    froms = d.get("from_prices") or []
-    if froms and (d.get("okinawa_included") == "yes" or rules.is_naha_carrier(name)):
-        return [Deal(origin="OKA", destination="全路線", price=min(f["price"] for f in froms),
-                     basis="from", from_prices=froms, **common)]
-    return []
+    # 那覇の個別価格が分からないセールは「対象路線セール」として1件で知らせる（逃さない・誤認させない）
+    if (from_routes or (not out and from_prices)) and (
+            from_routes or d.get("okinawa_included") == "yes" or rules.is_naha_carrier(name)):
+        lows = {}
+        for f in from_prices:
+            lows[f["area"]] = min(f["price"], lows.get(f["area"], f["price"]))
+        deal = Deal(origin="OKA", destination="全路線", price=min(lows.values()) if lows else 0,
+                    basis="from", from_prices=[{"area": k, "price": v} for k, v in lows.items()],
+                    **common)
+        if from_routes:
+            deal.note = "対象に那覇発の " + "・".join(rules.dest_name(c) for c in dict.fromkeys(from_routes)) + " を含む"
+        out.append(deal)
+    return out
 
 
 def deals_from_skymark(rows: list[dict], rules: Rules, page_url: str) -> list[Deal]:
@@ -156,8 +167,8 @@ def record_history(deals: list[Deal], state: State, now: datetime) -> None:
     day = now.strftime("%Y-%m-%d")
     have = {(h["date"], h["airline"], h["origin"], h["destination"], h["price"]) for h in state.history}
     for d in deals:
-        if d.destination == "全路線":
-            continue
+        if d.destination == "全路線" or d.basis == "from":
+            continue   # 路線ごとの実際の価格ではないので履歴に入れない
         k = (day, d.airline, d.origin, d.destination, d.price)
         if k not in have:
             have.add(k)

@@ -199,7 +199,8 @@ def judge(deal: Deal, rules: Rules, now: datetime) -> Deal:
     if deal.destination == "全路線":
         deal.rank = ALL_ROUTES
         froms = "／".join(f"{f['area']}{f['price']:,}円〜" for f in deal.from_prices) or "価格は記事参照"
-        deal.reason = f"那覇就航の{deal.airline}の全路線セール（{froms}・那覇路線の価格は記事に記載なし）"
+        deal.reason = (f"{deal.airline}のセール（{froms}）。那覇路線それぞれの価格は記事に記載なし"
+                       "→ 公式サイトで要確認")
         return deal
 
     if deal.currency != "JPY":
