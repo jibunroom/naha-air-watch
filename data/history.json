@@ -691,5 +691,16 @@
   "trip": "片道",
   "basis": "official",
   "source": "スカイマーク（運賃CSV）"
+ },
+ {
+  "date": "2026-10-03",
+  "airline": "トリニティ航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 23370,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "route",
+  "source": "TRAICY"
  }
 ]
