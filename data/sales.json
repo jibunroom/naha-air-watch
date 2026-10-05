@@ -163,5 +163,65 @@
    "https://dsk.ne.jp/news/peach_dangan_20260929.html"
   ],
   "notified_at": "2026-10-02T21:26+09:00"
+ },
+ {
+  "key": [
+   "香港エクスプレス",
+   "OKA",
+   "HKG",
+   4000,
+   false
+  ],
+  "airline": "香港エクスプレス",
+  "origin": "OKA",
+  "destination": "HKG",
+  "price": 4000,
+  "rank": "即買い",
+  "booking_start": "2026-10-05T11:00",
+  "booking_end": "2026-10-07T23:59",
+  "urls": [
+   "https://monomoney-living.com/hkexpress-timesale_20261005/"
+  ],
+  "notified_at": "2026-10-05T21:42+09:00"
+ },
+ {
+  "key": [
+   "香港エクスプレス",
+   "OKA",
+   "HKG",
+   5000,
+   false
+  ],
+  "airline": "香港エクスプレス",
+  "origin": "OKA",
+  "destination": "HKG",
+  "price": 5000,
+  "rank": "即買い",
+  "booking_start": "2026-10-05T11:00",
+  "booking_end": "2026-10-07T23:59",
+  "urls": [
+   "https://monomoney-living.com/hkexpress-timesale_20261005/"
+  ],
+  "notified_at": "2026-10-05T21:42+09:00"
+ },
+ {
+  "key": [
+   "香港エクスプレス",
+   "OKA",
+   "全路線",
+   4000,
+   false
+  ],
+  "airline": "香港エクスプレス",
+  "origin": "OKA",
+  "destination": "全路線",
+  "price": 4000,
+  "rank": "全路線",
+  "booking_start": "2026-10-05T11:00",
+  "booking_end": "2026-10-07T23:59",
+  "urls": [
+   "https://dsk.ne.jp/news/hkexpress_sale_20261005.html"
+  ],
+  "notified_at": "2026-10-05T21:42+09:00"
  }
 ]

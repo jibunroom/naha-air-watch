@@ -845,5 +845,60 @@
   "trip": "片道",
   "basis": "official",
   "source": "スカイマーク（運賃CSV）"
+ },
+ {
+  "date": "2026-10-05",
+  "airline": "チェジュ航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 17530,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-05",
+  "airline": "チェジュ航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 20030,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-05",
+  "airline": "香港エクスプレス",
+  "origin": "OKA",
+  "destination": "HKG",
+  "price": 4000,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-05",
+  "airline": "香港エクスプレス",
+  "origin": "OKA",
+  "destination": "HKG",
+  "price": 5000,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-05",
+  "airline": "JAL",
+  "origin": "OKA",
+  "destination": "HND",
+  "price": 11440,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "TRAICY"
  }
 ]
