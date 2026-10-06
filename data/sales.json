@@ -223,5 +223,25 @@
    "https://dsk.ne.jp/news/hkexpress_sale_20261005.html"
   ],
   "notified_at": "2026-10-05T21:42+09:00"
+ },
+ {
+  "key": [
+   "ジンエアー",
+   "OKA",
+   "全路線",
+   2000,
+   false
+  ],
+  "airline": "ジンエアー",
+  "origin": "OKA",
+  "destination": "全路線",
+  "price": 2000,
+  "rank": "全路線",
+  "booking_start": "2026-10-05T00:00",
+  "booking_end": null,
+  "urls": [
+   "https://monomoney-living.com/jinair-kto_20261005/"
+  ],
+  "notified_at": "2026-10-07T00:21+09:00"
  }
 ]
