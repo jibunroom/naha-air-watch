@@ -243,5 +243,45 @@
    "https://monomoney-living.com/jinair-kto_20261005/"
   ],
   "notified_at": "2026-10-07T00:21+09:00"
+ },
+ {
+  "key": [
+   "JAL",
+   "OKA",
+   "全路線",
+   50000,
+   false
+  ],
+  "airline": "JAL",
+  "origin": "OKA",
+  "destination": "全路線",
+  "price": 50000,
+  "rank": "全路線",
+  "booking_start": "2026-10-08T00:00",
+  "booking_end": "2026-10-18T23:59",
+  "urls": [
+   "https://monomoney-living.com/jal-timesale_20261008/"
+  ],
+  "notified_at": "2026-10-08T19:26+09:00"
+ },
+ {
+  "key": [
+   "JAL",
+   "OKA",
+   "全路線",
+   27800,
+   false
+  ],
+  "airline": "JAL",
+  "origin": "OKA",
+  "destination": "全路線",
+  "price": 27800,
+  "rank": "全路線",
+  "booking_start": null,
+  "booking_end": "2026-10-18T23:59",
+  "urls": [
+   "https://sky-budget.com/2026/10/08/jal-sale-inter-oct226/"
+  ],
+  "notified_at": "2026-10-08T19:26+09:00"
  }
 ]
