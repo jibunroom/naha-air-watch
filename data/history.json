@@ -1241,5 +1241,16 @@
   "trip": "片道",
   "basis": "official",
   "source": "スカイマーク（運賃CSV）"
+ },
+ {
+  "date": "2026-10-10",
+  "airline": "JTB",
+  "origin": "OKA",
+  "destination": "",
+  "price": 37600,
+  "tax": "不明",
+  "trip": "往復",
+  "basis": "route",
+  "source": "TRAICY"
  }
 ]
