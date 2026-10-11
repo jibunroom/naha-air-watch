@@ -1252,5 +1252,71 @@
   "trip": "往復",
   "basis": "route",
   "source": "TRAICY"
+ },
+ {
+  "date": "2026-10-11",
+  "airline": "スカイマーク",
+  "origin": "OKA",
+  "destination": "IBR",
+  "price": 9500,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "official",
+  "source": "スカイマーク（運賃CSV）"
+ },
+ {
+  "date": "2026-10-11",
+  "airline": "スカイマーク",
+  "origin": "OKA",
+  "destination": "HND",
+  "price": 9100,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "official",
+  "source": "スカイマーク（運賃CSV）"
+ },
+ {
+  "date": "2026-10-11",
+  "airline": "スカイマーク",
+  "origin": "OKA",
+  "destination": "NGO",
+  "price": 7200,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "official",
+  "source": "スカイマーク（運賃CSV）"
+ },
+ {
+  "date": "2026-10-11",
+  "airline": "スカイマーク",
+  "origin": "OKA",
+  "destination": "UKB",
+  "price": 6400,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "official",
+  "source": "スカイマーク（運賃CSV）"
+ },
+ {
+  "date": "2026-10-11",
+  "airline": "スカイマーク",
+  "origin": "OKA",
+  "destination": "FUK",
+  "price": 6400,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "official",
+  "source": "スカイマーク（運賃CSV）"
+ },
+ {
+  "date": "2026-10-11",
+  "airline": "スカイマーク",
+  "origin": "OKA",
+  "destination": "SHI",
+  "price": 4100,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "official",
+  "source": "スカイマーク（運賃CSV）"
  }
 ]
