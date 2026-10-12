@@ -1384,5 +1384,38 @@
   "trip": "片道",
   "basis": "official",
   "source": "スカイマーク（運賃CSV）"
+ },
+ {
+  "date": "2026-10-12",
+  "airline": "HIS",
+  "origin": "OKA",
+  "destination": "KIX",
+  "price": 29800,
+  "tax": "不明",
+  "trip": "往復",
+  "basis": "route",
+  "source": "TRAICY"
+ },
+ {
+  "date": "2026-10-12",
+  "airline": "HIS",
+  "origin": "OKA",
+  "destination": "KIX",
+  "price": 35800,
+  "tax": "不明",
+  "trip": "往復",
+  "basis": "route",
+  "source": "TRAICY"
+ },
+ {
+  "date": "2026-10-12",
+  "airline": "HIS",
+  "origin": "ISG",
+  "destination": "KIX",
+  "price": 39800,
+  "tax": "不明",
+  "trip": "往復",
+  "basis": "route",
+  "source": "TRAICY"
  }
 ]
