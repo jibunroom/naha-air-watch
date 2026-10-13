@@ -283,5 +283,25 @@
    "https://sky-budget.com/2026/10/08/jal-sale-inter-oct226/"
   ],
   "notified_at": "2026-10-08T19:26+09:00"
+ },
+ {
+  "key": [
+   "イースター航空",
+   "OKA",
+   "全路線",
+   1900,
+   false
+  ],
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "全路線",
+  "price": 1900,
+  "rank": "全路線",
+  "booking_start": "2026-10-14T10:00",
+  "booking_end": "2026-10-20T23:59",
+  "urls": [
+   "https://monomoney-living.com/easterjet-timesale/"
+  ],
+  "notified_at": "2026-10-14T00:53+09:00"
  }
 ]
