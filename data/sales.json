@@ -303,5 +303,47 @@
    "https://monomoney-living.com/easterjet-timesale/"
   ],
   "notified_at": "2026-10-14T00:53+09:00"
+ },
+ {
+  "key": [
+   "イースター航空",
+   "OKA",
+   "ICN",
+   6900,
+   false
+  ],
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 6900,
+  "rank": "即買い",
+  "booking_start": "2026-10-14T10:00",
+  "booking_end": "2026-10-20T23:59",
+  "urls": [
+   "https://sky-budget.com/2026/10/14/eastar-jet-sale-oct2026-dec-jan/",
+   "https://dsk.ne.jp/news/eastarjet_sale_20261014.html"
+  ],
+  "notified_at": "2026-10-14T19:24+09:00"
+ },
+ {
+  "key": [
+   "イースター航空",
+   "OKA",
+   "PUS",
+   3500,
+   false
+  ],
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 3500,
+  "rank": "即買い",
+  "booking_start": "2026-10-14T10:00",
+  "booking_end": "2026-10-20T23:59",
+  "urls": [
+   "https://sky-budget.com/2026/10/14/eastar-jet-sale-oct2026-dec-jan/",
+   "https://dsk.ne.jp/news/eastarjet_sale_20261014.html"
+  ],
+  "notified_at": "2026-10-14T19:24+09:00"
  }
 ]

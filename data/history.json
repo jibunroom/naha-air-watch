@@ -1593,5 +1593,49 @@
   "trip": "往復",
   "basis": "route",
   "source": "TRAICY"
+ },
+ {
+  "date": "2026-10-14",
+  "airline": "チェジュ航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 16730,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-14",
+  "airline": "チェジュ航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 17530,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-14",
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 6900,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "sky-budget"
+ },
+ {
+  "date": "2026-10-14",
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 3500,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "sky-budget"
  }
 ]
