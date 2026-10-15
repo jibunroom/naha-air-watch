@@ -345,5 +345,65 @@
    "https://dsk.ne.jp/news/eastarjet_sale_20261014.html"
   ],
   "notified_at": "2026-10-14T19:24+09:00"
+ },
+ {
+  "key": [
+   "ピーチ",
+   "OKA",
+   "NGO",
+   5000,
+   false
+  ],
+  "airline": "ピーチ",
+  "origin": "OKA",
+  "destination": "NGO",
+  "price": 5000,
+  "rank": "即買い",
+  "booking_start": "2026-10-16T12:00",
+  "booking_end": "2026-10-19T23:59",
+  "urls": [
+   "https://monomoney-living.com/peach-timesale-next/"
+  ],
+  "notified_at": "2026-10-16T07:37+09:00"
+ },
+ {
+  "key": [
+   "ピーチ",
+   "OKA",
+   "KIX",
+   5000,
+   false
+  ],
+  "airline": "ピーチ",
+  "origin": "OKA",
+  "destination": "KIX",
+  "price": 5000,
+  "rank": "安い",
+  "booking_start": "2026-10-16T12:00",
+  "booking_end": "2026-10-19T23:59",
+  "urls": [
+   "https://monomoney-living.com/peach-timesale-next/"
+  ],
+  "notified_at": "2026-10-16T07:37+09:00"
+ },
+ {
+  "key": [
+   "ピーチ",
+   "OKA",
+   "FUK",
+   4000,
+   false
+  ],
+  "airline": "ピーチ",
+  "origin": "OKA",
+  "destination": "FUK",
+  "price": 4000,
+  "rank": "即買い",
+  "booking_start": "2026-10-16T12:00",
+  "booking_end": "2026-10-19T23:59",
+  "urls": [
+   "https://monomoney-living.com/peach-timesale-next/"
+  ],
+  "notified_at": "2026-10-16T07:37+09:00"
  }
 ]
