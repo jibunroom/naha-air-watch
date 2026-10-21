@@ -2429,5 +2429,16 @@
   "trip": "片道",
   "basis": "route",
   "source": "sky-budget"
+ },
+ {
+  "date": "2026-10-22",
+  "airline": "チェジュ航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 17230,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
  }
 ]
