@@ -405,5 +405,28 @@
    "https://monomoney-living.com/peach-timesale-next/"
   ],
   "notified_at": "2026-10-16T07:37+09:00"
+ },
+ {
+  "key": [
+   "ジェットスター",
+   "OKA",
+   "KHH",
+   7990,
+   false
+  ],
+  "airline": "ジェットスター",
+  "origin": "OKA",
+  "destination": "KHH",
+  "price": 7990,
+  "rank": "即買い",
+  "booking_start": "2026-10-23T12:00",
+  "booking_end": "2026-10-26T16:59",
+  "urls": [
+   "https://monomoney-living.com/jetstar-timesale-next/",
+   "https://www.traicy.com/posts/20261022385566/",
+   "https://sky-budget.com/2026/10/22/jetstar-sale-oct2026/",
+   "https://dsk.ne.jp/news/jetstar_sale_20261023.html"
+  ],
+  "notified_at": "2026-10-22T22:13+09:00"
  }
 ]
