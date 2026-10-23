@@ -428,5 +428,25 @@
    "https://dsk.ne.jp/news/jetstar_sale_20261023.html"
   ],
   "notified_at": "2026-10-22T22:13+09:00"
+ },
+ {
+  "key": [
+   "イースター航空",
+   "OKA",
+   "PUS",
+   2500,
+   false
+  ],
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 2500,
+  "rank": "即買い",
+  "booking_start": "2026-10-26T10:00",
+  "booking_end": "2026-10-30T23:59",
+  "urls": [
+   "https://monomoney-living.com/easterjet-timesale-next/"
+  ],
+  "notified_at": "2026-10-23T19:20+09:00"
  }
 ]

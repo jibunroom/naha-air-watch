@@ -2473,5 +2473,27 @@
   "trip": "片道",
   "basis": "route",
   "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-23",
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 2500,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-23",
+  "airline": "チェジュ航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 17230,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "route",
+  "source": "TRAICY"
  }
 ]
