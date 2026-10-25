@@ -2495,5 +2495,38 @@
   "trip": "片道",
   "basis": "route",
   "source": "TRAICY"
+ },
+ {
+  "date": "2026-10-26",
+  "airline": "JAL",
+  "origin": "OKA",
+  "destination": "HND",
+  "price": 24200,
+  "tax": "不明",
+  "trip": "往復",
+  "basis": "route",
+  "source": "TRAICY"
+ },
+ {
+  "date": "2026-10-26",
+  "airline": "JAL",
+  "origin": "ISG",
+  "destination": "HND",
+  "price": 36300,
+  "tax": "不明",
+  "trip": "往復",
+  "basis": "route",
+  "source": "TRAICY"
+ },
+ {
+  "date": "2026-10-26",
+  "airline": "JAL",
+  "origin": "MMY",
+  "destination": "HND",
+  "price": 41300,
+  "tax": "不明",
+  "trip": "往復",
+  "basis": "route",
+  "source": "TRAICY"
  }
 ]
