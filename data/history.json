@@ -2528,5 +2528,16 @@
   "trip": "往復",
   "basis": "route",
   "source": "TRAICY"
+ },
+ {
+  "date": "2026-10-26",
+  "airline": "香港エクスプレス",
+  "origin": "OKA",
+  "destination": "HKG",
+  "price": 2300,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
  }
 ]
