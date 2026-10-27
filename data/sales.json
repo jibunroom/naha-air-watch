@@ -489,5 +489,45 @@
    "https://dsk.ne.jp/news/hkexpress_sale_20261026.html"
   ],
   "notified_at": "2026-10-26T20:26+09:00"
+ },
+ {
+  "key": [
+   "香港エクスプレス",
+   "OKA",
+   "HKG",
+   2000,
+   false
+  ],
+  "airline": "香港エクスプレス",
+  "origin": "OKA",
+  "destination": "HKG",
+  "price": 2000,
+  "rank": "即買い",
+  "booking_start": "2026-10-26T11:00",
+  "booking_end": "2026-10-30T23:59",
+  "urls": [
+   "https://monomoney-living.com/hkexpress-timesale-next/"
+  ],
+  "notified_at": "2026-10-27T10:26+09:00"
+ },
+ {
+  "key": [
+   "香港エクスプレス",
+   "OKA",
+   "HKG",
+   4000,
+   false
+  ],
+  "airline": "香港エクスプレス",
+  "origin": "OKA",
+  "destination": "HKG",
+  "price": 4000,
+  "rank": "即買い",
+  "booking_start": "2026-10-26T11:00",
+  "booking_end": "2026-10-30T23:59",
+  "urls": [
+   "https://monomoney-living.com/hkexpress-timesale-next/"
+  ],
+  "notified_at": "2026-10-27T10:26+09:00"
  }
 ]

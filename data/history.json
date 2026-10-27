@@ -2539,5 +2539,104 @@
   "trip": "片道",
   "basis": "route",
   "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-27",
+  "airline": "香港エクスプレス",
+  "origin": "OKA",
+  "destination": "HKG",
+  "price": 2300,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-27",
+  "airline": "香港エクスプレス",
+  "origin": "ISG",
+  "destination": "HKG",
+  "price": 2300,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-27",
+  "airline": "香港エクスプレス",
+  "origin": "OKA",
+  "destination": "HKG",
+  "price": 2000,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-27",
+  "airline": "香港エクスプレス",
+  "origin": "ISG",
+  "destination": "HKG",
+  "price": 2000,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-27",
+  "airline": "香港エクスプレス",
+  "origin": "OKA",
+  "destination": "HKG",
+  "price": 4000,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-27",
+  "airline": "香港エクスプレス",
+  "origin": "ISG",
+  "destination": "HKG",
+  "price": 4000,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-27",
+  "airline": "香港エクスプレス",
+  "origin": "SHI",
+  "destination": "HKG",
+  "price": 4000,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-27",
+  "airline": "香港エクスプレス",
+  "origin": "ISG",
+  "destination": "HKG",
+  "price": 1900,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-10-27",
+  "airline": "香港エクスプレス",
+  "origin": "SHI",
+  "destination": "HKG",
+  "price": 1900,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
  }
 ]
