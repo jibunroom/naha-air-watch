@@ -529,5 +529,25 @@
    "https://monomoney-living.com/hkexpress-timesale-next/"
   ],
   "notified_at": "2026-10-27T10:26+09:00"
+ },
+ {
+  "key": [
+   "スクート",
+   "OKA",
+   "SIN",
+   19000,
+   false
+  ],
+  "airline": "スクート",
+  "origin": "OKA",
+  "destination": "SIN",
+  "price": 19000,
+  "rank": "即買い",
+  "booking_start": "2026-10-27T11:00",
+  "booking_end": "2026-10-30T23:59",
+  "urls": [
+   "https://dsk.ne.jp/news/scoot_sale_20261026.html"
+  ],
+  "notified_at": "2026-10-27T21:42+09:00"
  }
 ]
