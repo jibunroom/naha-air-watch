@@ -2869,5 +2869,60 @@
   "trip": "片道",
   "basis": "route",
   "source": "sky-budget"
+ },
+ {
+  "date": "2026-10-29",
+  "airline": "タイガーエア台湾",
+  "origin": "OKA",
+  "destination": "TPE",
+  "price": 7300,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-29",
+  "airline": "タイガーエア台湾",
+  "origin": "ISG",
+  "destination": "TPE",
+  "price": 8300,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-29",
+  "airline": "タイガーエア台湾",
+  "origin": "OKA",
+  "destination": "RMQ",
+  "price": 7300,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-29",
+  "airline": "タイガーエア台湾",
+  "origin": "OKA",
+  "destination": "KHH",
+  "price": 7300,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-29",
+  "airline": "タイガーエア台湾",
+  "origin": "OKA",
+  "destination": "TNN",
+  "price": 7300,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
  }
 ]

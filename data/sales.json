@@ -571,5 +571,65 @@
    "https://sky-budget.com/2026/10/28/scoot-sale-oct2026/"
   ],
   "notified_at": "2026-10-29T00:16+09:00"
+ },
+ {
+  "key": [
+   "タイガーエア台湾",
+   "OKA",
+   "TPE",
+   7300,
+   false
+  ],
+  "airline": "タイガーエア台湾",
+  "origin": "OKA",
+  "destination": "TPE",
+  "price": 7300,
+  "rank": "即買い",
+  "booking_start": "2026-10-30T10:00",
+  "booking_end": "2026-10-31T23:59",
+  "urls": [
+   "https://dsk.ne.jp/news/tigerair_taiwan_sale_20261030.html"
+  ],
+  "notified_at": "2026-10-29T22:28+09:00"
+ },
+ {
+  "key": [
+   "タイガーエア台湾",
+   "OKA",
+   "RMQ",
+   7300,
+   false
+  ],
+  "airline": "タイガーエア台湾",
+  "origin": "OKA",
+  "destination": "RMQ",
+  "price": 7300,
+  "rank": "即買い",
+  "booking_start": "2026-10-30T10:00",
+  "booking_end": "2026-10-31T23:59",
+  "urls": [
+   "https://dsk.ne.jp/news/tigerair_taiwan_sale_20261030.html"
+  ],
+  "notified_at": "2026-10-29T22:28+09:00"
+ },
+ {
+  "key": [
+   "タイガーエア台湾",
+   "OKA",
+   "KHH",
+   7300,
+   false
+  ],
+  "airline": "タイガーエア台湾",
+  "origin": "OKA",
+  "destination": "KHH",
+  "price": 7300,
+  "rank": "即買い",
+  "booking_start": "2026-10-30T10:00",
+  "booking_end": "2026-10-31T23:59",
+  "urls": [
+   "https://dsk.ne.jp/news/tigerair_taiwan_sale_20261030.html"
+  ],
+  "notified_at": "2026-10-29T22:28+09:00"
  }
 ]
