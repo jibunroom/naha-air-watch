@@ -2924,5 +2924,49 @@
   "trip": "片道",
   "basis": "route",
   "source": "LCCjp"
+ },
+ {
+  "date": "2026-10-30",
+  "airline": "エイチ・アイ・エス",
+  "origin": "OKA",
+  "destination": "HND",
+  "price": 21800,
+  "tax": "不明",
+  "trip": "往復",
+  "basis": "route",
+  "source": "TRAICY"
+ },
+ {
+  "date": "2026-10-30",
+  "airline": "エイチ・アイ・エス",
+  "origin": "ISG",
+  "destination": "HND",
+  "price": 38800,
+  "tax": "不明",
+  "trip": "往復",
+  "basis": "route",
+  "source": "TRAICY"
+ },
+ {
+  "date": "2026-10-30",
+  "airline": "エイチ・アイ・エス",
+  "origin": "MMY",
+  "destination": "HND",
+  "price": 43600,
+  "tax": "不明",
+  "trip": "往復",
+  "basis": "route",
+  "source": "TRAICY"
+ },
+ {
+  "date": "2026-10-30",
+  "airline": "ピーチ",
+  "origin": "OKA",
+  "destination": "TPE",
+  "price": 9000,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "TRAICY"
  }
 ]
