@@ -631,5 +631,45 @@
    "https://dsk.ne.jp/news/tigerair_taiwan_sale_20261030.html"
   ],
   "notified_at": "2026-10-29T22:28+09:00"
+ },
+ {
+  "key": [
+   "イースター航空",
+   "OKA",
+   "ICN",
+   3950,
+   false
+  ],
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 3950,
+  "rank": "即買い",
+  "booking_start": "2026-11-02T10:00",
+  "booking_end": "2026-11-08T23:59",
+  "urls": [
+   "https://dsk.ne.jp/news/eastarjet_sale_20261102.html"
+  ],
+  "notified_at": "2026-11-03T10:50+09:00"
+ },
+ {
+  "key": [
+   "イースター航空",
+   "OKA",
+   "PUS",
+   1500,
+   false
+  ],
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 1500,
+  "rank": "即買い",
+  "booking_start": "2026-11-02T10:00",
+  "booking_end": "2026-11-08T23:59",
+  "urls": [
+   "https://dsk.ne.jp/news/eastarjet_sale_20261102.html"
+  ],
+  "notified_at": "2026-11-03T10:50+09:00"
  }
 ]
