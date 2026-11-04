@@ -3100,5 +3100,27 @@
   "trip": "片道",
   "basis": "route",
   "source": "LCCjp"
+ },
+ {
+  "date": "2026-11-04",
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 3950,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "sky-budget"
+ },
+ {
+  "date": "2026-11-04",
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 1500,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "sky-budget"
  }
 ]
