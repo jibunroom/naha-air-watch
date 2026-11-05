@@ -3122,5 +3122,27 @@
   "trip": "片道",
   "basis": "route",
   "source": "sky-budget"
+ },
+ {
+  "date": "2026-11-05",
+  "airline": "ジェットスター",
+  "origin": "OKA",
+  "destination": "NRT",
+  "price": 5990,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "sky-budget"
+ },
+ {
+  "date": "2026-11-05",
+  "airline": "ジェットスター",
+  "origin": "OKA",
+  "destination": "KIX",
+  "price": 5890,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "sky-budget"
  }
 ]
