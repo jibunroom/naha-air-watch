@@ -671,5 +671,67 @@
    "https://dsk.ne.jp/news/eastarjet_sale_20261102.html"
   ],
   "notified_at": "2026-11-03T10:50+09:00"
+ },
+ {
+  "key": [
+   "ジェットスター",
+   "OKA",
+   "全路線",
+   3696,
+   false
+  ],
+  "airline": "ジェットスター",
+  "origin": "OKA",
+  "destination": "全路線",
+  "price": 3696,
+  "rank": "全路線",
+  "booking_start": "2026-11-20T12:00",
+  "booking_end": "2026-11-26T16:59",
+  "urls": [
+   "https://prtimes.jp/main/html/rd/p/000000222.000012437.html"
+  ],
+  "notified_at": "2026-11-14T00:34+09:00"
+ },
+ {
+  "key": [
+   "ジェットスター",
+   "OKA",
+   "KHH",
+   7696,
+   false
+  ],
+  "airline": "ジェットスター",
+  "origin": "OKA",
+  "destination": "KHH",
+  "price": 7696,
+  "rank": "即買い",
+  "booking_start": "2026-11-20T12:00",
+  "booking_end": "2026-11-26T16:59",
+  "urls": [
+   "https://www.traicy.com/posts/20261113387817/",
+   "https://sky-budget.com/2026/11/13/jetstar-sale-nov2026/",
+   "https://dsk.ne.jp/news/jetstar_blackfriday_sale_2026.html"
+  ],
+  "notified_at": "2026-11-14T00:34+09:00"
+ },
+ {
+  "key": [
+   "ジェットスター",
+   "OKA",
+   "KHH",
+   7996,
+   false
+  ],
+  "airline": "ジェットスター",
+  "origin": "OKA",
+  "destination": "KHH",
+  "price": 7996,
+  "rank": "即買い",
+  "booking_start": "2026-11-20T12:00",
+  "booking_end": "2026-11-26T16:59",
+  "urls": [
+   "https://dsk.ne.jp/news/jetstar_blackfriday_sale_2026.html"
+  ],
+  "notified_at": "2026-11-14T00:34+09:00"
  }
 ]
