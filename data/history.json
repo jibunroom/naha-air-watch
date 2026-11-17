@@ -3452,5 +3452,16 @@
   "trip": "片道",
   "basis": "route",
   "source": "LCCjp"
+ },
+ {
+  "date": "2026-11-17",
+  "airline": "JAL",
+  "origin": "OKA",
+  "destination": "HND",
+  "price": 11440,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "TRAICY"
  }
 ]
