@@ -733,5 +733,45 @@
    "https://dsk.ne.jp/news/jetstar_blackfriday_sale_2026.html"
   ],
   "notified_at": "2026-11-14T00:34+09:00"
+ },
+ {
+  "key": [
+   "イースター航空",
+   "OKA",
+   "ICN",
+   6500,
+   false
+  ],
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 6500,
+  "rank": "即買い",
+  "booking_start": "2026-11-18T10:00",
+  "booking_end": "2026-11-24T23:59",
+  "urls": [
+   "https://dsk.ne.jp/news/eastarjet_sale_20261118.html"
+  ],
+  "notified_at": "2026-11-19T01:38+09:00"
+ },
+ {
+  "key": [
+   "イースター航空",
+   "OKA",
+   "PUS",
+   5500,
+   false
+  ],
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 5500,
+  "rank": "即買い",
+  "booking_start": "2026-11-18T10:00",
+  "booking_end": "2026-11-24T23:59",
+  "urls": [
+   "https://dsk.ne.jp/news/eastarjet_sale_20261118.html"
+  ],
+  "notified_at": "2026-11-19T01:38+09:00"
  }
 ]
