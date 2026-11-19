@@ -773,5 +773,85 @@
    "https://dsk.ne.jp/news/eastarjet_sale_20261118.html"
   ],
   "notified_at": "2026-11-19T01:38+09:00"
+ },
+ {
+  "key": [
+   "エアプサン",
+   "OKA",
+   "PUS",
+   4270,
+   false
+  ],
+  "airline": "エアプサン",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 4270,
+  "rank": "即買い",
+  "booking_start": null,
+  "booking_end": null,
+  "urls": [
+   "https://monomoney-living.com/airbusan-timesale-next/"
+  ],
+  "notified_at": "2026-11-19T22:40+09:00"
+ },
+ {
+  "key": [
+   "エアプサン",
+   "OKA",
+   "PUS",
+   6900,
+   false
+  ],
+  "airline": "エアプサン",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 6900,
+  "rank": "即買い",
+  "booking_start": null,
+  "booking_end": null,
+  "urls": [
+   "https://monomoney-living.com/airbusan-timesale-next/"
+  ],
+  "notified_at": "2026-11-19T22:40+09:00"
+ },
+ {
+  "key": [
+   "エアプサン",
+   "OKA",
+   "PUS",
+   4070,
+   false
+  ],
+  "airline": "エアプサン",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 4070,
+  "rank": "即買い",
+  "booking_start": null,
+  "booking_end": null,
+  "urls": [
+   "https://monomoney-living.com/airbusan-timesale-next/"
+  ],
+  "notified_at": "2026-11-19T22:40+09:00"
+ },
+ {
+  "key": [
+   "タイガーエア台湾",
+   "OKA",
+   "KHH",
+   5300,
+   false
+  ],
+  "airline": "タイガーエア台湾",
+  "origin": "OKA",
+  "destination": "KHH",
+  "price": 5300,
+  "rank": "即買い",
+  "booking_start": "2026-11-20T10:00",
+  "booking_end": "2026-11-23T23:59",
+  "urls": [
+   "https://dsk.ne.jp/news/tigerair_taiwan_sale_20261120.html"
+  ],
+  "notified_at": "2026-11-19T22:40+09:00"
  }
 ]

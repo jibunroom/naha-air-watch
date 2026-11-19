@@ -3485,5 +3485,93 @@
   "trip": "片道",
   "basis": "route",
   "source": "LCCjp"
+ },
+ {
+  "date": "2026-11-19",
+  "airline": "エアプサン",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 4270,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-11-19",
+  "airline": "エアプサン",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 6900,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-11-19",
+  "airline": "エアプサン",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 4070,
+  "tax": "不明",
+  "trip": "片道",
+  "basis": "route",
+  "source": "モノリビ"
+ },
+ {
+  "date": "2026-11-19",
+  "airline": "タイガーエア台湾",
+  "origin": "OKA",
+  "destination": "KHH",
+  "price": 5300,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-11-19",
+  "airline": "タイガーエア台湾",
+  "origin": "ISG",
+  "destination": "KHH",
+  "price": 5300,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-11-19",
+  "airline": "タイガーエア台湾",
+  "origin": "OKA",
+  "destination": "TNN",
+  "price": 5300,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-11-19",
+  "airline": "ピーチ",
+  "origin": "OKA",
+  "destination": "TPE",
+  "price": 9790,
+  "tax": "税別",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
+ },
+ {
+  "date": "2026-11-19",
+  "airline": "チェジュ航空",
+  "origin": "OKA",
+  "destination": "ICN",
+  "price": 16530,
+  "tax": "税込",
+  "trip": "片道",
+  "basis": "route",
+  "source": "LCCjp"
  }
 ]
