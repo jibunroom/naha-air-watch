@@ -853,5 +853,68 @@
    "https://dsk.ne.jp/news/tigerair_taiwan_sale_20261120.html"
   ],
   "notified_at": "2026-11-19T22:40+09:00"
+ },
+ {
+  "key": [
+   "ピーチ",
+   "OKA",
+   "FUK",
+   4000,
+   false
+  ],
+  "airline": "ピーチ",
+  "origin": "OKA",
+  "destination": "FUK",
+  "price": 4000,
+  "rank": "即買い",
+  "booking_start": "2026-11-25T12:00",
+  "booking_end": "2026-11-29T23:59",
+  "urls": [
+   "https://sky-budget.com/2026/11/24/peach-black-friday-sale2026/",
+   "https://dsk.ne.jp/news/peach_sale_20261125.html"
+  ],
+  "notified_at": "2026-11-24T19:12+09:00"
+ },
+ {
+  "key": [
+   "スクート",
+   "OKA",
+   "SIN",
+   19500,
+   false
+  ],
+  "airline": "スクート",
+  "origin": "OKA",
+  "destination": "SIN",
+  "price": 19500,
+  "rank": "即買い",
+  "booking_start": "2026-11-24T00:00",
+  "booking_end": "2026-11-27T23:59",
+  "urls": [
+   "https://sky-budget.com/2026/11/24/scoot-sale-nov2026/",
+   "https://dsk.ne.jp/news/scoot_sale_20261124.html"
+  ],
+  "notified_at": "2026-11-24T19:12+09:00"
+ },
+ {
+  "key": [
+   "スクート",
+   "OKA",
+   "KUL",
+   22500,
+   false
+  ],
+  "airline": "スクート",
+  "origin": "OKA",
+  "destination": "KUL",
+  "price": 22500,
+  "rank": "即買い",
+  "booking_start": "2026-11-24T00:00",
+  "booking_end": "2026-11-27T23:59",
+  "urls": [
+   "https://sky-budget.com/2026/11/24/scoot-sale-nov2026/",
+   "https://dsk.ne.jp/news/scoot_sale_20261124.html"
+  ],
+  "notified_at": "2026-11-24T19:12+09:00"
  }
 ]
