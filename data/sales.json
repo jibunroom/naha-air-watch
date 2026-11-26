@@ -916,5 +916,25 @@
    "https://dsk.ne.jp/news/scoot_sale_20261124.html"
   ],
   "notified_at": "2026-11-24T19:12+09:00"
+ },
+ {
+  "key": [
+   "イースター航空",
+   "OKA",
+   "PUS",
+   1500,
+   false
+  ],
+  "airline": "イースター航空",
+  "origin": "OKA",
+  "destination": "PUS",
+  "price": 1500,
+  "rank": "即買い",
+  "booking_start": "2026-11-26T10:00",
+  "booking_end": "2026-11-30T23:59",
+  "urls": [
+   "https://dsk.ne.jp/news/eastarjet_sale_20261126.html"
+  ],
+  "notified_at": "2026-11-27T00:33+09:00"
  }
 ]
